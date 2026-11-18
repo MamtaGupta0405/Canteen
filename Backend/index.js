@@ -5,6 +5,7 @@ import cors from "cors";
 import express from "express";
 import { connectdb } from "./config/db.js";
 import UserRouter from "./User/Route/UserRoute.js";
+import ProductRouter from "./ProductManagement/Route/ProductRoute.js";
 
 const app = express();
 app.use(cookieParser());
@@ -21,6 +22,7 @@ app.get("/", (req, res) => {
 });
 //  API
 app.use('/',UserRouter)
+app.use("/",ProductRouter)
 const port = process.env.PORT || 3000; //agar env load nhi hu tau
 
 connectdb().then(()=>{
